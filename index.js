@@ -35,3 +35,8 @@ const questions = [
         ],
     },
 ];
+
+const questionsManager = [{
+    name:"officeNumber",
+    message: "What is the manager's office number?"
+}]
