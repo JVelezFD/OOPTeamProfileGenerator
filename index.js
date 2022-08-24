@@ -1,12 +1,12 @@
 import fs  from  "fs";
-const util = require('util');
+//const util = require('util');
 import inquirer from "inquirer";
 import Intern from "./lib/intern.js";
 import Manager from "./lib/manager.js";
 import Engineer from "./lib/engineer.js";
 import displayTeam from "./src/srcHTML.js";
 
-const path = require('path');
+//const path = require('path');
 
 
 //need a place to put the new employees created
