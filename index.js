@@ -5,12 +5,10 @@ import Intern from "./lib/intern.js";
 import Manager from "./lib/manager.js";
 import Engineer from "./lib/engineer.js";
 import displayTeam from "./src/srcHTML.js";
-
-
 const path = require('path');
 
 
-//need a place to put the new employee created
+//need a place to put the new employees created
 let newEmployee =[]
 
 //Questions for inquirer
@@ -146,5 +144,5 @@ const emplQuestions = async () => {
     console.log("Your team profile created!");
   }
   
-//call to start the inquisitor
+
   startQuestions();
