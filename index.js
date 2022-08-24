@@ -1,11 +1,14 @@
-const manager = require('./lib/manager.js');
-const engineer = require('./lib/engineer.js');
-const intern = require('./lib/intern.js');
-const tester = require('./lib/tester.js')
-const inquirer = require('inquirer');
-const path = require('path');
-const fs = require('fs');
+import fs  from  "fs";
 const util = require('util');
+import inquirer from "inquirer";
+import Intern from "./lib/intern.js";
+import Manager from "./lib/manager.js";
+import Engineer from "./lib/engineer.js";
+import displayTeam from "./src/srcHTML.js";
+
+
+const path = require('path');
+
 
 //need a place to put the new employee created
 let newEmployee =[]
@@ -91,7 +94,7 @@ const emplQuestions = async () => {
       },
     ]);
     if (emplAns.role === "Manager") {
-      let newManager = new manager(
+      let newManager = new Manager(
         emplAns.name,
         emplAns.id,
         emplAns.email,
@@ -99,7 +102,7 @@ const emplQuestions = async () => {
       );
       newEmployee.push(newManager);
     } else if (emplAns.role === "Engineer") {
-      let newEngineer = new engineer(
+      let newEngineer = new Engineer(
         emplAns.name,
         emplAns.id,
         emplAns.email,
@@ -107,7 +110,7 @@ const emplQuestions = async () => {
       );
       newEmployee.push(newEngineer);
     } else {
-      let newIntern = new intern(
+      let newIntern = new Intern(
         emplAns.name,
         emplAns.id,
         emplAns.email,
@@ -121,7 +124,7 @@ const emplQuestions = async () => {
   async function startQuestions() {
     await emplQuestions();
   
-    const nextStage = await inquirer.prompt([
+    const theirChoice = await inquirer.prompt([
       {
         name: "newEmployee",
         type: "list",
@@ -130,7 +133,7 @@ const emplQuestions = async () => {
       },
     ]);
   
-    if (nextStage.newEmployee === "Add new employee") {
+    if (theirChoice.newEmployee === "Add new employee") {
       return startQuestions();
     } else {
       return makeTeam();
@@ -139,9 +142,9 @@ const emplQuestions = async () => {
   
   // create the new team profile and add to the dist file location
   function makeTeam() {
-    fs.writeFileSync("./dist/teamprofile.html", createTeam(newEmployee), "utf-8");
+    fs.writeFileSync("./dist/teamprofile.html", displayTeam(newEmployee), "utf-8");
     console.log("Your team profile created!");
   }
   
-  // // Function call to initialize the app
+//call to start the inquisitor
   startQuestions();
