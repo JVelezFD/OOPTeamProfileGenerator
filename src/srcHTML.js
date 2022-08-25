@@ -5,8 +5,8 @@ export default function displayTeam(newEmployee) {
 
     for (let i = 0; i < newEmployee.length; i++) {
         displayHTML += `
-      <div class="col-3 employee-card text-white bg-primary mb-3">
-      <div class="card-header text-center text-white"><h4>${newEmployee[
+      <div class="col-3 employee-card text-white bg-dark mb-3">
+      <div class="card-header text-center text-white m-3"><h4>${newEmployee[
                 i
             ].getRole()}</h4></div>
       <h5 class="card-title">Name: ${newEmployee[i].name}</h5>
@@ -37,7 +37,7 @@ export default function displayTeam(newEmployee) {
           <link rel="stylesheet" href="../assets/css/style.css" />
         </head>
         <body>
-          <header class="hero bg-danger">
+          <header class="hero bg-dark text-light">
             <h1 class="display-3 text-center">Team Profile</h1>
           </header>
           <main>

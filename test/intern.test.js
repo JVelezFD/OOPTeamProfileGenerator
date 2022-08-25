@@ -1,21 +1,13 @@
 //setting up intern test for  Jest
 
-import Intern from "../lib/intern";
+import Intern from "../lib/intern.js";
 
-test("Got school value", () => {
-  const testValue = "Harvard";
-  const e = new Intern("Bam", 1, "test@test.com", testValue);
-  expect(e.school).toBe(testValue);
+const intern = new Intern ('Jesus', 17, 'test@gmail.com', 'FSU');
+
+test('School of the intern', () => {
+    expect(intern.getSchool()).toEqual('FSU')
 });
 
-test('role should be intern', () => {
-  const testValue = "Intern";
-  const e = new Intern("Bam", 1, "test@test.com", "Harvard");
-  expect(e.getRole()).toBe(testValue);
-});
-
-test("got school using the function", () => {
-  const testValue = "Harvard";
-  const e = new Intern("Bam", 1, "test@test.com", testValue);
-  expect(e.getSchool()).toBe(testValue);
+test('Role of employee', () => {
+    expect(intern.getRole()).toEqual("Intern")
 });

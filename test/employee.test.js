@@ -1,50 +1,21 @@
 //setting up main employee test for jest 
 
-import Employee from "../lib/employee";
+import Employee from "../lib/employee.js";
 
-test("Can start the employee process", () => {
-  const e = new Employee();
-  expect(typeof e).toBe("object");
+const employee = new Employee('Jesus', 17, 'test@gmail.com');
+
+test('Employee Name', () => {
+    expect(employee.getName()).toEqual('Jesus')
 });
 
-test("Can set name", () => {
-  const name = "Jesus";
-  const e = new Employee(name);
-  expect(e.name).toBe(name);
+test('Employee Id', () => {
+    expect(employee.getId()).toEqual(17)
 });
 
-test("Can set id ", () => {
-  const testValue = 100;
-  const e = new Employee("Bam", testValue);
-  expect(e.id).toBe(testValue);
+test('Employee email', () => {
+    expect(employee.getEmail()).toEqual('test@gmail.com')
 });
 
-test("Can set email ", () => {
-  const testValue = "test@testemail.com";
-  const e = new Employee("Bam", 1, testValue);
-  expect(e.email).toBe(testValue);
-});
-
-test("Can get name from the function", () => {
-  const testValue = "Jesus";
-  const e = new Employee(testValue);
-  expect(e.getName()).toBe(testValue);
-});
-
-test("Can get id from the function", () => {
-  const testValue = 100;
-  const e = new Employee("Bam", testValue);
-  expect(e.getId()).toBe(testValue);
-});
-
-test("Can get email from the function", () => {
-  const testValue = "test@testemail.com";
-  const e = new Employee("Bam", 1, testValue);
-  expect(e.getEmail()).toBe(testValue);
-});
-
-test('can get the role from the function', () => {
-  const testValue = "Employee";
-  const e = new Employee("Jesus", 1, "test@testemail.com");
-  expect(e.getRole()).toBe(testValue);
+test('Employee role', () => {
+    expect(employee.getRole()).toEqual("Employee")
 });

@@ -1,21 +1,13 @@
 //setting up manger test for  Jest
 
-import Manager from "../lib/manager";
+import Manager from "../lib/manager.js";
 
-test("Can set office number", () => {
-  const testValue = 100;
-  const e = new Manager("Bam", 1, "test@test.com", testValue);
-  expect(e.officeNumber).toBe(testValue);
+const manager = new Manager('Jesus', 17, 'test@gmail.com', 5555555555);
+
+test('Office Number of manager', () => {
+    expect(manager.getOfficeNumber()).toEqual(55)
 });
 
-test('role function should return manager"', () => {
-  const testValue = "Manager";
-  const e = new Manager("Bam", 1, "test@test.com", 100);
-  expect(e.getRole()).toBe(testValue);
-});
-
-test("Can get the office number", () => {
-  const testValue = 100;
-  const e = new Manager("Bam", 1, "test@test.com", testValue);
-  expect(e.getOffNumber()).toBe(testValue);
+test('Role of employee', () => {
+    expect(manager.getRole()).toEqual("Manager")
 });
